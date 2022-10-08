@@ -1,6 +1,5 @@
 import React from "react";
-import { allChains, useAccount, useDisconnect, useNetwork } from "wagmi";
-import { ENetwork } from "../../features/network/networkSlice";
+import { useDisconnect, useNetwork } from "wagmi";
 
 import Button from "../Button";
 import { IconContainer, NetworkIcon } from "../Icons";
