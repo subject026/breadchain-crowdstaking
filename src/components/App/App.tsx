@@ -25,7 +25,6 @@ import About from "../../routes/Info";
 import SiteTitle from "../SiteTitle/SiteTitle";
 import { EToastType, setToast } from "../../features/toast/toastSlice";
 import { useAccount, useNetwork } from "wagmi";
-import TextLink from "../TextLink/TextLink";
 
 const App: React.FC<React.PropsWithChildren<unknown>> = () => {
   const dispatch = useAppDispatch();
@@ -44,10 +43,6 @@ const App: React.FC<React.PropsWithChildren<unknown>> = () => {
         if (!font.isLoaded) dispatch(setIsLoaded(true));
       });
 
-      // getXr().then((data) => {
-      //   dispatch(setXr(data));
-      // });
-
       if (!isConnected || !activeChain || !accountAddress) return;
 
       const network = getNetwork(activeChain.id);
@@ -65,9 +60,6 @@ const App: React.FC<React.PropsWithChildren<unknown>> = () => {
       dispatch(setNetwork(network));
       dispatch(setNetworkConnected(ENetworkConnectionState.CONNECTED));
 
-      // bind handlers for metamask events eg account change / network change
-      // ethInit(appState, dispatch);
-
       dispatch(setWalletAddress(accountAddress));
     })();
   }, [isConnected, activeChain?.id, accountAddress]);
@@ -78,6 +70,7 @@ const App: React.FC<React.PropsWithChildren<unknown>> = () => {
       {toast.type !== null && toast.message !== null && (
         <Toast type={toast.type} message={toast.message} />
       )}
+
       <Header />
 
       <SiteTitle />
@@ -90,9 +83,9 @@ const App: React.FC<React.PropsWithChildren<unknown>> = () => {
       </Main.Main>
 
       <Footer>
-        <TextLink variant="hidden" to="/pantry">
+        <Link to="/pantry" className="opacity-0 hover:opacity-100 px-4 py-2">
           pantry
-        </TextLink>
+        </Link>
       </Footer>
     </AppContainer>
   );
