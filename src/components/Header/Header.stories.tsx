@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import {
   MockWagmiDecorator,
   ReactRouterDecorator,
-  WagmiDecorator,
 } from "../../../.storybook/decorators";
 import { Wallet } from "ethers";
 
