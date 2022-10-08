@@ -30,6 +30,7 @@ import MobileNavigationToggle from "../Header/MobileNavigationToggle";
 import SiteTitle from "../SiteTitle/SiteTitle";
 import { EToastType, setToast } from "../../features/toast/toastSlice";
 import { useAccount, useNetwork } from "wagmi";
+import TextLink from "../TextLink";
 
 const App: React.FC<React.PropsWithChildren<unknown>> = () => {
   const dispatch = useAppDispatch();
@@ -105,9 +106,9 @@ const App: React.FC<React.PropsWithChildren<unknown>> = () => {
       </Main.Main>
 
       <Footer>
-        <Link to="/pantry" className="opacity-0 hover:opacity-100 px-4 py-2">
+        <TextLink to="/pantry" variant="hidden">
           pantry
-        </Link>
+        </TextLink>
       </Footer>
     </AppContainer>
   );
